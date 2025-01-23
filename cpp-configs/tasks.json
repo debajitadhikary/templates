@@ -8,31 +8,32 @@
         "args": [
           "copy",
           "\"${file}\"",
-          "${workspaceFolder}\\jspwTest.cpp",
+          "${workspaceFolder}\\cpp23xo.cpp", // Copy the current file to cpp23xo.cpp
           "&&",
           "g++",
-          "jspwTest.cpp",
+          "-std=c++23", // Use C++23 standard
+          "cpp23xo.cpp", // Compile cpp23xo.cpp
           "-o",
-          "jspwTest",
+          "cpp23xo", // Output the compiled file as cpp23xo.exe
           "&&",
-          "jspwTest",
+          "cpp23xo", // Run the compiled executable
           "<",
-          "input.txt",
+          "input.txt", // Input redirection
           ">",
-          "output.txt",
+          "output.txt", // Output redirection
           "&&",
           "del",
-          "jspwTest.exe",
+          "cpp23xo.exe", // Delete the executable after running
           "&&",
           "del",
-          "jspwTest.cpp"
+          "cpp23xo.cpp" // Delete the temporary cpp file
         ],
         "presentation": {
           "reveal": "never"
         },
         "group": {
           "kind": "build",
-          "isDefault": true,
+          "isDefault": true
         },
         "problemMatcher": {
           "owner": "cpp",
@@ -52,3 +53,4 @@
       }
     ]
   }
+  
