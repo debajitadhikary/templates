@@ -1,0 +1,56 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Compile and run",
+        "type": "shell",
+        "command": "",
+        "args": [
+          "copy",
+          "\"${file}\"",
+          "${workspaceFolder}\\cpp23xo.cpp", // Copy the current file to cpp23xo.cpp
+          "&&",
+          "g++",
+          "-std=c++23", // Use C++23 standard
+          "cpp23xo.cpp", // Compile cpp23xo.cpp
+          "-o",
+          "cpp23xo", // Output the compiled file as cpp23xo.exe
+          "&&",
+          "cpp23xo", // Run the compiled executable
+          "<",
+          "input.txt", // Input redirection
+          ">",
+          "output.txt", // Output redirection
+          "&&",
+          "del",
+          "cpp23xo.exe", // Delete the executable after running
+          "&&",
+          "del",
+          "cpp23xo.cpp" // Delete the temporary cpp file
+        ],
+        "presentation": {
+          "reveal": "never"
+        },
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": {
+          "owner": "cpp",
+          "fileLocation": [
+            "relative",
+            "${workspaceRoot}"
+          ],
+          "pattern": {
+            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        }
+      }
+    ]
+  }
+  
